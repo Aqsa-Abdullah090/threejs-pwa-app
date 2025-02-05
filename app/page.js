@@ -7,6 +7,7 @@ import RotatingSphere from "@/components/Circle";
 import RotatingTorus from "@/components/RotatingTorus";
 import TourKnot from "@/components/TourKnot";
 import Leva from "@/components/leva";
+import VRGame from "@/components/VrGame";
 
 export default function Home() {
   return (
@@ -25,12 +26,7 @@ export default function Home() {
 
           {/* 3D Sphere and Torus */}
           <RotatingSphere position={[0, 2, 0]} radius={1} color="blue" />
-          <RotatingTorus
-            position={[0, -2, 0]}
-            radius={2}
-            tube={0.5}
-            color="green"
-          />
+          <RotatingTorus position={[0, -2, 0]} radius={2} tube={0.5} color="green" />
         </Canvas>
       </section>
       <section>
@@ -39,6 +35,10 @@ export default function Home() {
       <section>
         <Leva />
       </section>
+      <section>
+        <VRGame />
+      </section>
     </div>
   );
 }
+
