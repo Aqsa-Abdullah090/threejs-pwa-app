@@ -1,15 +1,23 @@
 "use client";
 
+import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { useRef } from "react";
 import RotatingBox from "@/components/RotatingBox";
 import RotatingSphere from "@/components/Circle";
 import RotatingTorus from "@/components/RotatingTorus";
 import TourKnot from "@/components/TourKnot";
 import Leva from "@/components/leva";
 import VRGame from "@/components/VrGame";
+import NightScene from "@/components/NightScene";
 
 export default function Home() {
+  const [showNightScene, setShowNightScene] = useState(false);
+
+  // Toggle the NightScene visibility
+  const handleNightSceneToggle = () => {
+    setShowNightScene(!showNightScene);
+  };
+
   return (
     <div>
       <section>
@@ -38,7 +46,21 @@ export default function Home() {
       <section>
         <VRGame />
       </section>
+
+      {/* Button to toggle NightScene */}
+      <section>
+        <h2>NIGHT SCENE</h2>
+      <button onClick={handleNightSceneToggle}>Toggle Night Scene</button>
+
+      {/* Conditionally render NightScene */}
+      {showNightScene && (
+        <section>
+          <NightScene />
+        </section>
+      )}
+      </section>
     </div>
   );
 }
+
 
