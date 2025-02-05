@@ -55,9 +55,9 @@ export default function Home() {
       {/* Button to toggle NightScene */}
       <section>
         <h2>CLICK ON BUTTON TO VIEW NIGHT SCENE</h2>
-        <button onClick={handleNightSceneToggle} style={{ padding: "10px", margin: "10px" }}>
+        {/* <button onClick={handleNightSceneToggle} style={{ padding: "10px", margin: "10px" }}>
           {showNightScene ? "Hide Night Scene" : "Show Night Scene"}
-        </button>
+        </button> */}
 
         {/* Conditionally render NightScene */}
         {showNightScene && (
