@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import RotatingBox from "@/components/RotatingBox";
 import RotatingSphere from "@/components/Circle";
@@ -14,27 +14,32 @@ import InteractiveScene from "@/components/InterectiveScene";
 
 export default function Home() {
   const [showNightScene, setShowNightScene] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
-  // Toggle the NightScene visibility
+  useEffect(() => {
+    // This ensures the code runs only on the client-side
+    setIsClient(true);
+  }, []);
+
   const handleNightSceneToggle = () => {
     setShowNightScene(!showNightScene);
   };
+
+  // If not on the client-side, return null to prevent SSR errors
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div style={{ textAlign: "center" }}>
       <section>
         <Canvas style={{ width: "90vw", height: "95vh" }}>
-          {/* Add lighting */}
           <ambientLight intensity={0.5} />
           <directionalLight position={[2, 2, 2]} intensity={1} />
-
-          {/* 3D objects */}
           <RotatingBox position={[2, 0, 0]} args={[1, 1, 1]} color="orange" />
           <RotatingBox position={[-2, 0, 0]} args={[1, 1, 1]} color="orange" />
           <RotatingBox position={[2, 4, 0]} args={[1, 2, 0]} color="orange" />
           <RotatingBox position={[2, -4, 0]} args={[1, 2, 0]} color="orange" />
-
-          {/* 3D Sphere and Torus */}
           <RotatingSphere position={[0, 2, 0]} radius={1} color="blue" />
           <RotatingTorus position={[0, -2, 0]} radius={2} tube={0.5} color="green" />
         </Canvas>
@@ -52,19 +57,12 @@ export default function Home() {
         <VRGame />
       </section>
 
-      {/* Button to toggle NightScene */}
       <section>
         <h2>CLICK ON BUTTON TO VIEW NIGHT SCENE</h2>
-        {/* <button onClick={handleNightSceneToggle} style={{ padding: "10px", margin: "10px" }}>
+        <button onClick={handleNightSceneToggle} style={{ padding: "10px", margin: "10px" }}>
           {showNightScene ? "Hide Night Scene" : "Show Night Scene"}
-        </button> */}
-
-        {/* Conditionally render NightScene */}
-        {showNightScene && (
-          <section>
-            <NightScene />
-          </section>
-        )}
+        </button>
+        {showNightScene && <NightScene />}
       </section>
 
       <section>
@@ -73,12 +71,13 @@ export default function Home() {
       </section>
 
       <div>
-      <h1>Interactive 3D Scene</h1>
-      <InteractiveScene />
-    </div>
+        <h1>Interactive 3D Scene</h1>
+        <InteractiveScene />
+      </div>
     </div>
   );
 }
+
 
 
 
