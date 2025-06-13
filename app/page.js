@@ -45,17 +45,17 @@ export default function Home() {
         </Canvas>
       </section>
 
-      {/* <section>
+      <section>
         <TourKnot />
-      </section> */}
+      </section>
 
-      {/* <section>
+      <section>
         <Leva />
-      </section> */}
+      </section>
 
-      {/* <section>
+      <section>
         <VRGame />
-      </section> */}
+      </section>
 
       <section>
         <h2>CLICK ON BUTTON TO VIEW NIGHT SCENE</h2>
@@ -65,15 +65,15 @@ export default function Home() {
         {showNightScene && <NightScene />}
       </section>
 
-      {/* <section>
+      <section>
         <h2>MOVE THIS IMAGE IN 360 DEGREE</h2>
         <Scene />
-      </section> */}
+      </section>
 
-      {/* <div>
+      <div>
         <h1>Interactive 3D Scene</h1>
         <InteractiveScene />
-      </div> */}
+      </div>
     </div>
   );
 }
