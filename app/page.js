@@ -52,23 +52,23 @@ export default function Home() {
       <section>
         <Leva />
       </section>
-{/* 
+
       <section>
         <VRGame />
-      </section> */}
+      </section>
 
-      {/* <section>
+      <section>
         <h2>CLICK ON BUTTON TO VIEW NIGHT SCENE</h2>
         <button onClick={handleNightSceneToggle} style={{ padding: "10px", margin: "10px" }}>
           {showNightScene ? "Hide Night Scene" : "Show Night Scene"}
         </button>
         {showNightScene && <NightScene />}
-      </section> */}
+      </section>
 
-      {/* <section>
+      <section>
         <h2>MOVE THIS IMAGE IN 360 DEGREE</h2>
         <Scene />
-      </section> */}
+      </section>
 
       <div>
         <h1>Interactive 3D Scene</h1>
